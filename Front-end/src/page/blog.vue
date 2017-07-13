@@ -50,7 +50,7 @@
         },
         methods: {
             publish(){
-                axios.post('http://localhost:3000/api/blog/publish', {
+                axios.post('/api/blog/publish', {
                     author: 'lsx',
                     title: this.title,
                     tags: [this.tag1, this.tag2, this.tag3],
@@ -64,7 +64,7 @@
                 });
             },
             getDetail(id){
-                axios.get(`http://localhost:3000/api/blog/detail/${id}`)
+                axios.get(`/api/blog/detail/${id}`)
                 .then( response => {
                     console.log(response.data);
                     this.t_id = response.data.blog._id;
@@ -76,7 +76,7 @@
                 });
             },
             getBlogList(page){
-                axios.get(`http://localhost:3000/api/blog/home/${page}`)
+                axios.get(`/api/blog/blogList/${page}`)
                 .then( response => {
                     console.log(response.data);
                 })
@@ -85,7 +85,7 @@
                 });
             },
             getBlogListByTag(page, tag){
-                axios.get(`http://localhost:3000/api/tag/blogsList/${tag}/${page}`)
+                axios.get(`/api/blog/blogList/${tag}/${page}`)
                 .then( response => {
                     console.log(response.data);
                 })
@@ -94,7 +94,7 @@
                 });
             },
             getTagList(){
-                axios.get('http://localhost:3000/api/tag/tagsList')
+                axios.get(`/api/tag/tagsList`)
                 .then( response => {
                     console.log(response.data);
                 })
@@ -103,7 +103,7 @@
                 });
             },
             updateBlog(id){
-                axios.put(`http://localhost:3000/api/blog/${id}`, {
+                axios.put(`/api/blog/${id}`, {
                     content: this.t_content
                 })
                 .then( response => {
@@ -114,8 +114,8 @@
                 });
             },
             addComment(){
-                axios.post('http://localhost:3000/api/blog/comment', {
-                    id: this.t_id,
+                var id = this.t_id;
+                axios.put(`/api/blog/comment/${id}`, {
                     name: this.name,
                     email: this.email,
                     message: this.message
@@ -128,7 +128,7 @@
                 });
             },
             deleteBlog(id){
-                axios.delete(`http://localhost:3000/api/blog/${id}`)
+                axios.delete(`/api/blog/${id}`)
                 .then( response => {
                     console.log(response.data);
                 })

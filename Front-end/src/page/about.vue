@@ -32,7 +32,7 @@
                     var md5 = crypto.createHash('md5');
 		            var password = md5.update(this.password).digest('hex');
 
-                    axios.post('http://localhost:3000/api/user/register', {
+                    axios.post(`api/user/register`, {
                         username: this.username,
                         password: password
                     })
@@ -48,7 +48,7 @@
                 var md5 = crypto.createHash('md5');
                 var passwordL = md5.update(this.passwordL).digest('hex');
 
-                axios.post('http://localhost:3000/api/user/login', {
+                axios.post(`/api/user/login`, {
                     username: this.$data.usernameL,
                     password: passwordL
                 })

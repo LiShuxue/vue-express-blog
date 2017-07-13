@@ -53,7 +53,18 @@ module.exports = {
     },
     devServer: {
         historyApiFallback: true,
-        noInfo: true
+        noInfo: true,
+        hot: true,
+        inline: true,
+        port: 8080,
+        host: 'localhost',
+        proxy: {
+            '/api/*': {
+                target: 'http://localhost:3000',
+                changeOrigin: true,
+                secure: false
+            }
+        }
     },
     devtool: '#eval-source-map'
 }

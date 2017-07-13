@@ -62,7 +62,7 @@ router.get('/blog/detail/:id', function (req, res, next){
 	})
 });
 
-router.get('/blog/home/:page', function (req, res, next){
+router.get('/blog/blogList/:page', function (req, res, next){
 	api_blog.getTenBlogs(req.params.page)
 	.then( (result) => {
 		if(result && result.length > 0){
@@ -84,7 +84,7 @@ router.get('/blog/home/:page', function (req, res, next){
 	})
 });
 
-router.get('/tag/blogsList/:tag/:page', function (req, res, next){
+router.get('/blog/blogList/:tag/:page', function (req, res, next){
 	api_blog.getTenBlogsByTag(req.params.page, req.params.tag)
 	.then( (result) => {
 		if(result && result.length > 0){
@@ -151,7 +151,7 @@ router.put('/blog/:id', function (req, res, next){
 	})
 });
 
-router.post('/blog/comment', function (req, res, next){
+router.put('/blog/comment/:id', function (req, res, next){
 	var date = new Date();
 	var comment = {
 		name: req.body.name,
@@ -159,7 +159,7 @@ router.post('/blog/comment', function (req, res, next){
 		minute: date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()),
 		message: req.body.message
 	};
-	api_blog.addComment(req.body.id, comment)
+	api_blog.addComment(req.params.id, comment)
 	.then( (result) => {
 		var {ok, nModified, n} = result;
 		if(ok>0 && n>0 && nModified>0){

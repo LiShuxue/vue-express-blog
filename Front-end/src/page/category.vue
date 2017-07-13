@@ -20,7 +20,7 @@
         },
         methods: {
             getTagList(){
-                axios.get('http://localhost:3000/api/tag/tagList')
+                axios.get(`/api/tag/tagList`)
                 .then( response => {
                     console.log(response.data);
                     console.log(this.tags);
