@@ -128,8 +128,8 @@ router.get('/tag/tagList', function (req, res, next){
 	})
 });
 
-router.post('/blog/update', function (req, res, next){
-	api_blog.updateBlog(req.body.id, req.body.content)
+router.put('/blog/:id', function (req, res, next){
+	api_blog.updateBlog(req.params.id, req.body.content)
 	.then( (result) => {
 		console.log(result);    //result : { n: 1, nModified: 1, ok: 1 }
 		var {ok, nModified, n} = result;
@@ -180,8 +180,8 @@ router.post('/blog/comment', function (req, res, next){
 	})
 });
 
-router.post('/blog/delete', function (req, res, next){
-	api_blog.deleteBlog(req.body.id)
+router.delete('/blog/:id', function (req, res, next){
+	api_blog.deleteBlog(req.params.id)
 	.then( ({result:{n, ok}}) => {
 		if(ok>0 && n>0){
 			res.send({

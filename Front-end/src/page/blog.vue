@@ -14,7 +14,7 @@
 
         标题：<input type="text" v-model="t_title" readonly="true"><br>
 		正文：<textarea cols="100" rows="20" v-model="t_content"></textarea><br>
-        <button @click="updateBlog">修改</button>
+        <button @click="updateBlog('594cbc4a43671d22706a6d7d')">修改</button>
         <hr>
 
         昵称：<input type="text" v-model="name" /><br>
@@ -23,7 +23,7 @@
         <button @click="addComment">评论</button>
         <hr>
 
-        <button @click="deleteBlog">删除</button>
+        <button @click="deleteBlog('594b4ff8dd2b9a0e7a924ed4')">删除</button>
         <br>
         <br>
         <br>
@@ -102,9 +102,8 @@
                     console.log(err);
                 });
             },
-            updateBlog(){
-                axios.post('http://localhost:3000/api/blog/update', {
-                    id: this.t_id,
+            updateBlog(id){
+                axios.put(`http://localhost:3000/api/blog/${id}`, {
                     content: this.t_content
                 })
                 .then( response => {
@@ -128,10 +127,8 @@
                     console.log(err);
                 });
             },
-            deleteBlog(){
-                axios.post('http://localhost:3000/api/blog/delete', {
-                    id: '594b5082dd2b9a0e7a924ed6',
-                })
+            deleteBlog(id){
+                axios.delete(`http://localhost:3000/api/blog/${id}`)
                 .then( response => {
                     console.log(response.data);
                 })
