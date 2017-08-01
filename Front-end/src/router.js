@@ -9,15 +9,16 @@ import About from './page/about';
 Vue.use(VueRouter);
 
 const routes = [
-    {path: '/', redirect:'/home'},
-    {path: '/home', name:'home', component: Home},
-    {path: '/app', name:'app', component: App, redirect:'/app/blog',
+    {path: '/', redirect:'/app'},
+    {path: '/app', name:'app', component: App, redirect:'/app/home',
         children: [
+            {path: '/app/home', name:'home', component: Home},
             {path: '/app/blog', name:'menu1', component: Blog},
             {path: '/app/category', name:'menu2', component: Category},
             {path: '/app/about', name:'menu4', component: About}
         ]
     }
+    /*{path: '/login', name:'login', component: Login}*/
 ];
 
 const router = new VueRouter({

@@ -1,0 +1,52 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-size: 12px;
+    font-family: "宋体", Arial, Helvetica, sans-serif;
+    color: #666666;
+    background: url(../img/bg.jpg) repeat;
+}
+
+img {
+    border: 0;
+    display: block
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    outline: none;
+}
+
+.f_l {
+    float: left
+}
+
+.f_r {
+    float: right
+}
+
+.f_clear {
+    height: 5px;
+    overflow: hidden;
+    width: 100%;
+    margin: auto;
+    clear: both
+}
+
+.b-wrapper {
+    background: url(../img/footside.jpg) bottom center no-repeat;
+}

@@ -1,38 +1,24 @@
 <template>
-    <div id="footer" class="footer">
-        <div class="line sign">
-            <p>© 2017 李树雪</p>
+    <footer>
+        <div class="bottom-text">
+            <p>一个人达到的高度，不是看他现在的高度，是看他在原来的高度上前进了多少</p>
         </div>
-        <div class="line back-top">
-            <a href="#app">回到顶部</a>
-        </div>
-    </div>
+    </footer>
 </template>
 
 <script>
-    export default {
-        
-    }
+    export default {}
 </script>
 
-<style>
-    .footer{
-        position: fixed;
-        bottom: 0px;
-        height: 30px;
-        width: 100%;
-        background-color: #eff2f7;
+<style scoped>
+    footer{
+        color: #ccc;
+        margin: 20px 0 0 0;
+        padding: 20px 0;
+        background: url(../assets/img/footerbg.png) repeat-x;
     }
-    .line{
-        display: inline-block;
-    }
-    .sign{
-        margin: 5px 0px 0px 50px;
-    }
-    .back-top{
-        position: absolute;
-        right: 50px;
-        margin: 5px 0px 0px 50px;
-        color: black;
+    .bottom-text{
+        width: 1000px;
+        margin: auto;
     }
 </style>

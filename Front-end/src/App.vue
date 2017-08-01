@@ -1,25 +1,22 @@
 <template>
-    <div id="appContainer" class="app-content">
-        <nav-bar></nav-bar>
+    <div id="wrapper" class="wrapper">
+        <header-component></header-component> 
         <router-view></router-view>
         <footer-component></footer-component>
     </div>
 </template>
 
 <script>
-    import navBar from './component/navbar.vue';
+    import headerComponent from './component/header.vue';
     import footerComponent from './component/footer.vue';
     export default {
         components: {
-            navBar,
+            headerComponent,
             footerComponent
         }
     }
 </script>
 
-<style>
-    *{
-        margin: 0px;
-        padding: 0px;
-    }
+<style scoped>
+    @import "./assets/style/base.css"; 
 </style>

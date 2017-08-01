@@ -48,7 +48,8 @@ module.exports = {
             'vue$': 'vue/dist/vue.js',            //用于import时
             'vuex$': 'vuex/dist/vuex.js',
             'vueRouter$': 'vue-router/dist/vue-router.js',
-            'axios$': 'axios/dist/axios.min.js'
+            'axios$': 'axios/dist/axios.min.js',
+            'jquery$': 'jquery/dist/jquery.min.js'
         }
     },
     devServer: {
