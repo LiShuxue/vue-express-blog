@@ -1,57 +1,46 @@
 <template>
-    <div id="home" class="home-page">
-        <div class="intro">
-            <h1>李树雪的个人网站</h1>
-            <p class="option" v-on:click="goBlog">博客</p>
-            <p class="option" v-on:click="goCategory">分类</p>
-            <p class="option" v-on:click="goGitHub">GitHub</p>
-            <p class="option" v-on:click="goAbout">About</p>
+    <div class="home">
+        <jz-component></jz-component>
+        <div class="container">
+            <div class="blog-list f_l">
+                <blogintro-component></blogintro-component>
+            </div>
+            
+            <div class="rightbox f_r">
+                <focusme-component></focusme-component>
+                <tuijian-component></tuijian-component>
+                <paihang-component></paihang-component>
+            </div>
         </div>
+        <jz-component></jz-component>
     </div>
 </template>
 
 <script>
-    import router from '../router';
+    import jzComponent from '../component/jz.vue';
+    import blogintroComponent from '../component/blogIntro.vue';
+    import focusmeComponent from '../component/focusMe.vue';
+    import tuijianComponent from '../component/tuijian.vue';
+    import paihangComponent from '../component/paihang.vue';
     export default {
-        methods: {
-            goBlog: function(){
-                router.push('/app/blog');
-            },
-            goCategory: function(){
-                router.push('/app/category');
-            },
-            goGitHub: function(){
-                window.open('https://github.com/LiShuxue');
-            },
-            goAbout: function(){
-                router.push('/app/about');
-            }
+        components: {
+            jzComponent,
+            blogintroComponent,
+            focusmeComponent,
+            tuijianComponent,
+            paihangComponent
         }
     }
 </script>
 
-<style>
-    .home-page{
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+<style scoped>
+    .blog-list{
+        width: 620px;
+        overflow: hidden;
+        margin: 0px 0px 20px 20px;
     }
-    .intro{
-        margin: 200px auto;
-        width: 350px;
-        height: 200px;
-        background-color: gray;
-        opacity: 0.4;
-        text-align:center;
-    }
-    .option{
-        padding-top: 10px;
-        cursor: pointer;
-        border-bottom: 1px solid white;
-    }
+    .rightbox{
+        width: 300px;
+        margin: 20px 20px 0 0;
+    }  
 </style>
