@@ -16,7 +16,7 @@
 
 2. 确保mongodb连接端口是27017，如果不是，可以手动修改项目中的 Back-end/db/db_config.js 中的端口号。
 
-3. 确保mongodb已经启动。mac使用 sudo mongod 命令来启动
+3. 确保执行sudo操作的时候不用输入密码(Mac环境)。因为启动的时候需要先确保MongoDB已经启动，mac使用 sudo mongod 命令来启动。
 
 4. checkout或者download项目，进入项目目录，执行<pre><code> npm install </code></pre>
 
