@@ -1,33 +1,30 @@
 import * as types from '../mutation-types';
 
 const state = {
-    comm: {
-        isCommon: true,
-        message: 'test'
-    }
+    token: null
 };
 
 const getters = {
-    commConfig: state => state.comm.isCommon,
-    getMessage: state => state.comm.message
+    getToken: state => state.token
 };
 
 const mutations = {
-    [types.CHANGE_COMMFLAG](state, statu) {
-        state.comm.isCommon = statu;
-    },
-    
-    [types.CHANGE_MESSAGE](state, data) {
-        state.comm.mesage = data;
+    [types.CHANGE_TOKEN](state, token) {
+        localStorage.token = token;
+        state.token = token;
     }
 };
 
 const actions = {
-    changeCommFlagAction({commit}, statu) {
-        commit(types.CHANGE_COMMFLAG, statu);
-    },
-    changeMessageAction({commit}, data) {
-        commit(types.CHANGE_MESSAGE, data);
+    // mutations 用来同步改变state数据，而action则可以进行异步操作来改变state。比如下面
+    // testAction({commit}, data){
+    //     setTimeout( ()=>{                //mutations是同步的，如果在mutations中也这样写的话，并不会起作用
+    //         commit(types.CHANGE_TOKEN, data);
+    //     }, 1000);
+    // },
+
+    changeTokenAction({commit}, token) {
+        commit(types.CHANGE_TOKEN, token);
     }
 };
 

@@ -1,2 +1,1 @@
-export const CHANGE_COMMFLAG = 'CHANGE_COMMFLAG';
-export const CHANGE_MESSAGE = 'CHANGE_MESSAGE';
+export const CHANGE_TOKEN = 'CHANGE_TOKEN';

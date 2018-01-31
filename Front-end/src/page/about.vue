@@ -12,8 +12,8 @@
 </template>
 
 <script>
-    import axios from 'axios';
     import crypto from 'crypto';
+    import router from '../router';
     export default {
         data: function(){
             return {
@@ -32,7 +32,7 @@
                     var md5 = crypto.createHash('md5');
 		            var password = md5.update(this.password).digest('hex');
 
-                    axios.post(`api/user/register`, {
+                    this.axios.post(`api/user/register`, {
                         username: this.username,
                         password: password
                     })
@@ -48,14 +48,14 @@
                 var md5 = crypto.createHash('md5');
                 var passwordL = md5.update(this.passwordL).digest('hex');
 
-                axios.post(`/api/user/login`, {
+                this.axios.post(`/api/user/login`, {
                     username: this.$data.usernameL,
                     password: passwordL
-                })
-                .then(function (response) {
+                }).then(response => {
                     console.log(response.data);
-                })
-                .catch(function (response) {
+                    this.$store.dispatch('changeTokenAction', response.data.token);
+                    router.push('/app/blog')
+                }).catch(response => {
                     console.log(response.data);
                 });
             }

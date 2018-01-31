@@ -10,11 +10,11 @@
             <div class="f_clear"></div>
             <nav class="navigation">
                 <ul class="menu">
-                    <li><a>网站首页</a></li>
-                    <li><a>网站首页</a></li>
-                    <li><a>网站首页</a></li>
-                    <li><a>网站首页</a></li>
-                    <li><a>网站首页</a></li>
+                    <li v-on:click="goHome"><a>首页</a></li>
+                    <li v-on:click="goBlog"><a>博客</a></li>
+                    <li v-on:click="goCategory"><a>分类</a></li>
+                    <li v-on:click="goGitHub"><a>GitHub</a></li>
+                    <li v-on:click="goAbout"><a>About</a></li>
                 </ul>
             </nav>
         </div>
@@ -38,18 +38,20 @@
                     $('#keyboard').css('color', '#999');
                 }
             },
-            handleSelect(key, keyPath) {
-                if(key === '1'){
-                    router.push('/home');
-                }else if(key === '2'){
-                    router.push('/app/blog');
-                }else if(key === '3'){
-                    router.push('/app/category');
-                }else if(key === '4'){
-                    window.open('https://github.com/LiShuxue');
-                }else if(key === '5'){
-                    router.push('/app/about');
-                }
+            goHome(){
+                router.push('/');
+            },
+            goBlog(){
+                router.push('/app/blog');
+            },
+            goCategory(){
+                router.push('/app/category');
+            },
+            goGitHub(){
+                window.open('https://github.com/LiShuxue');
+            },
+            goAbout(){
+                router.push('/app/about');
             }
         }
     }

@@ -2,15 +2,21 @@ var crypto = require('crypto');
 var express = require('express');
 var router = express.Router();
 var api_user = require('../api/api_user');
+var jwt = require('../utils/jwt.js');
 
 router.post('/user/login', function (req, res, next) {
     api_user.getUser(req.body.username, req.body.password)
         .then((result) => {
             if (result && result._id) {
+                const payload = {
+                    data: 'this is the data which server want send'
+                };
+                const token = jwt.encodeToken(payload);
                 res.send({
                     code: 200,
                     message: '登录成功',
-                    user: result
+                    user: result,
+                    token
                 });
             } else {
                 throw new Error('登录失败');
