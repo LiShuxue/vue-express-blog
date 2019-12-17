@@ -10,7 +10,7 @@
     "back-start": "node Back-end/src/app.js"
   },
   "dependencies": {
-    "axios": "^0.15.3",
+    "axios": "^0.19.0",
     "bluebird": "^3.5.0",
     "body-parser": "~1.17.1",
     "crypto": "0.0.3",
