@@ -19,7 +19,7 @@
     "express": "~4.15.2",
     "jquery": "^3.2.1",
     "markdown": "^0.5.0",
-    "mongoose": "^4.11.1",
+    "mongoose": "^5.8.1",
     "vue": "^2.0.1",
     "vue-router": "^2.7.0",
     "vuex": "^2.0.0"
